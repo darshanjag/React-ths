@@ -12,7 +12,7 @@ class App extends Component {
       {
         id:2,
         title : 'dinner with family',
-        completed: false
+        completed: true
       },
       {
         id:3,
