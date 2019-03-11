@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './components/Todos';
+import addTodo from './components/addTodo';
 import './App.css'
 class App extends Component {
   state={
@@ -37,6 +38,7 @@ this.setState({todos:[...this.state.todos.filter(todo=>todo.id!==id)]})
     return (
       
       <div className="App">
+      <addTodo />
        <Todos todos={this.state.todos} markComplete={this.markComplete}
        delTodo={this.delTodo} />
       </div>
