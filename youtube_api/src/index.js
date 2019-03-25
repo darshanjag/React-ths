@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import YTSearch from "youtube-api-search";
 import SearchBar from './components/SearchBar';
 const API_KEY = "AIzaSyAB_CN30ouaEgNLLx4FgVhOz8c1wBjJedk"
-state={
-search:YTSearch({key: API_KEY, term:"elonmusk"},function(data){
-    return(data);
-  })
-}
+
 class App extends Component{
+    state={
+        search:YTSearch({key: API_KEY, term:"elonmusk"},function(data){
+            console.log(data);
+            return(data);
+          })
+        }
     render(){
         
         return(
