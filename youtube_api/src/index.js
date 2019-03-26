@@ -5,24 +5,25 @@ import SearchBar from './components/SearchBar';
 const API_KEY = "AIzaSyAB_CN30ouaEgNLLx4FgVhOz8c1wBjJedk"
 
 class App extends Component{
-    state={
-        search:YTSearch({key: API_KEY, term:"elonmusk"},function(data){
-            console.log(data);
-            return(data);
-          })
-        }
+    constructor(props){
+        super(props);
+        this.state={videos:[]};
+        YTSearch({key:API_KEY,term:"elon musk"},(videos)=>{
+            this.setState({videos})
+        })
+    }
     render(){
         
         return(
             <div>
             <SearchBar />
-            <video_list_item search={this.state.search}/>
+            <video_list_item videos={this.state.videos}/>
             </div>
         )
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.querySelector('.container'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
