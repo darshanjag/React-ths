@@ -1,10 +1,6 @@
-import react,{Component}from "react";
-class video_list_item extends Component{
-render(){
-    return(
-        <div>
-            <img>{props.search.thumbnails.default}</img>
-        </div>
-    )
+import React from "react";
+const VideoListItem =(props)=>{
+     // const video = props.video;
+    return <li>Video</li>
 }
-}
+export default VideoListItem;
