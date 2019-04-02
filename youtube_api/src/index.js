@@ -5,29 +5,46 @@ import SearchBar from './components/SearchBar';
 const API_KEY = "AIzaSyAB_CN30ouaEgNLLx4FgVhOz8c1wBjJedk"
 
 class App extends Component{
-    constructor(props){
-        super(props);
-        this.state={videos:[]};
-        YTSearch({key:API_KEY,term:"elon musk"},(videos)=>{
-            this.setState({videos})
-        })
-    }
-    render(){
-        
-        return(
-            <div>
-            <SearchBar />
-            <video_list_item videos={this.state.videos}/>
-            </div>
-        )
-    }
+
+  constructor(props){
+    super(props);
+    this.state = {
+      videos : [],
+      selectedVideo : null
+    };
+    
+    this.videoSearch("elon musk tesla")
+  }
+
+  videoSearch(term){
+    YTSearch({key: API_KEY, term:term},(videos)=>{
+      this.setState({
+        videos: videos,
+        selectedVideo : videos[0]
+       })
+     })  
+  }
+
+ render(){
+
+  const videoSearch = _.debounce((term)=>{
+    this.videoSearch(term)
+  }, 50000);
+
+   return(
+     <div>
+    <br />
+       <SearchBar onSearchTermChange={term => this.videoSearch(term)}/> 
+    <br /><br />
+       <VideoDetail video={this.state.selectedVideo}/>
+       <VideoList onVideoSelect={selectedVideo => this.setState({selectedVideo})} videos={this.state.videos}/>
+     </div>
+   )
+ }
 }
 
-ReactDOM.render(<App />, document.querySelector('.container'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render(<App />,document.querySelector(".container"))
+//Rendering Component
 
- 
 
