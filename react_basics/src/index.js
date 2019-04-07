@@ -1,14 +1,29 @@
 import ReactDOM from 'react-dom';
-import React, { Component } from 'react'
+import React from 'react'
 import Home from './components/home'
-export class App extends Component {
+export class App extends React.Component {
+    constructor(){
+        super();
+        this.state={
+            homeLink:"home"
+        }
+    }
     onGreet(){
         alert("function called")
+    }
+    onChangeLinkName(newName){
+        this.setState({
+            homeLink:newName
+        });
     }
   render() {
     return (
       <div>
-          <Home  greet={this.onGreet}/>
+       
+        
+          <h1>{this.state.homeLink}</h1>
+          <Home  greet={this.onGreet}
+          changeLink={this.onChangeLinkName.bind(this)}/>
       </div>
     )
   }
