@@ -19,11 +19,12 @@ export class App extends React.Component {
   render() {
     return (
       <div>
-       
-        
           <h1>{this.state.homeLink}</h1>
           <Home  greet={this.onGreet}
-          changeLink={this.onChangeLinkName.bind(this)}/>
+          
+          changeLink={this.onChangeLinkName.bind(this)}
+          initialLinkName={this.state.homeLink}
+          />
       </div>
     )
   }
