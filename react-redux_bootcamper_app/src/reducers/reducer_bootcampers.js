@@ -1,9 +1,9 @@
 export default function(){
     return[
-    {name:"darshan"},
-    {name:"ujj"},
-    {name:"anup"},
-    {name:"nikhil"},
-    {name:"gert"}
+    {camper:"darshan"},
+    {camper:"ujj"},
+    {camper:"anup"},
+    {camper:"nikhil"},
+    {camper:"gert"}
     ]
 }
