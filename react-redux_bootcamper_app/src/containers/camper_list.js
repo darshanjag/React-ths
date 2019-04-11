@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 
 
 
 
 
-export class Camper_list extends Component {
+ class Camper_list extends Component {
     renderList(){
         return this.props.campers.map((camper)=>{
             return <li key={camper.name} className="list-group-item">{camper.name}</li>
@@ -24,5 +25,11 @@ export class Camper_list extends Component {
     )
   }
 }
+function mapStateToProps(state){
+    return{
+        camper: state.camper
+    };
+    
+}
 
-export default Camper_list
+export default connect(mapStateToProps)(Camper_list)
