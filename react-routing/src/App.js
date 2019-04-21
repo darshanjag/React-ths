@@ -9,9 +9,10 @@ class App extends Component {
     return (
       <BrowserRouter>
       <header>
-      <Link to="/">Home</Link>
-      <Link to="/posts">Posts</Link>
-      <Link to="/profile">Profile</Link>
+      <Link to="/">Home</Link><br/>
+      <Link to="/posts">Posts</Link><br/>
+      <Link to="/profile">Profile</Link><br/>
+      <hr/>
 
       </header>
       <div className="App">
